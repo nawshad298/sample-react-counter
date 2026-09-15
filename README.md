@@ -1,69 +1,76 @@
-Prerequisites
-Make sure you have:
-✅ Git installed
-✅ Docker installed
-✅ A Docker Hub account
+hello all
 
-Step 1: Clone the GitHub repository
-# git clone https://github.com/MdRasel0/sample-react-counter.git
-# cd sample-react-counter
+# Getting Started with Create React App
 
-Step 2: Create a Dockerfile
-Inside the project root directory, create a file named Dockerfile
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-$ sudo nano Dockerfile
+## Available Scripts
 
-# Step 1: Build the React app
-FROM node:18-alpine AS build
+In the project directory, you can run:
 
-WORKDIR /app
+### `npm start`
 
-COPY package*.json ./
-RUN npm install
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-COPY . .
-RUN npm run build
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-# Step 2: Serve the app using Nginx
-FROM nginx:alpine
+### `npm test`
 
-COPY --from=build /app/build /usr/share/nginx/html
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-EXPOSE 80
+### `npm run build`
 
-CMD ["nginx", "-g", "daemon off;"]
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-Step 3: Build the Docker image
-Run this command from the project directory:
-$ docker build -t sample-react-counter .
-$ docker images
 
-
-Step 4: Tag the image for Docker Hub
-Replace your_dockerhub_username with your real Docker Hub username.
-
-$ sudo docker tag sample-react-counter:latest nawshad298/reactapp:latest
-
-Step 5: Login to Docker Hub
-$ docker login
-
-Step 6:
-Login Docker Hub > my hub > Create repository > Repository name > “simplereact” > Short description > “it’s a simple react app repo for demo” > public > create 
-
-Step 7:Push the image to Docker Hub
-$ sudo docker push nawshad298/reactapp:latest
-
-
-Pull and Build:
-Step 1 Remove local image to test properly
-$ sudo docker rmi <image name>
-
-Step 2️ Pull the image from Docker Hub
-$ sudo docker pull nawshad298/reactapp:latest
-
-Step 3️ Run the container
-sudo docker run -d --name reactapp-container -p 80:8000 nawshad298/reactapp:latest
-
-Step 4️ Verify container is running
-$ sudo docker ps
+adbasdkajshdkajsdhakj
